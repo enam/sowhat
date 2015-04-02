@@ -1,0 +1,196 @@
+<!DOCTYPE html><html><head><title></title><link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /><style type='text/css'>
+
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing:-2px;
+  background:#f1f1f1;
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position: center 0%;
+  color:#6bc8c2;
+  margin:0;
+  padding:0;
+  font-weight:bold;
+}
+
+h1, h2, h3, p {
+  margin:0;
+}
+
+ul{
+  list-style: none;
+}
+
+em {
+  color:#f05a28;
+  font-style:normal;
+}
+
+a {
+  //font-family: 'Dancing Script', cursive;
+  background: rgba(107,200,194,100);
+  color:#f1f1f1;
+  line-height:117%;
+  text-decoration:none;
+}
+
+div  {
+  //width:100%;
+  //max-height: 100%;
+  //-webkit-filter: grayscale(100%);
+}
+
+img{
+  //max-height: 100%;
+  //max-width: 100%;
+}
+
+div {
+  cursor:pointer;
+  cursor:hand;
+  position:absolute;
+  top:0px;
+  left:0px;
+  padding:75px;
+  line-height:97%;
+}
+
+div.center {
+  text-align:center;
+}
+
+div.imageText {
+  text-shadow:0px 0px 15px rgba(0,0,0,0.5);
+  -webkit-filter:opacity(0.9);
+}
+.dancing{
+  font-family: 'Dancing Script', cursive;
+}
+.bottomleft{
+  letter-spacing: 0;
+  position: absolute;
+  width:100%;
+  left: 0px;
+  bottom: 0px;
+  background: rgba(107,200,194,1);
+  font-size: 20px;
+  color:#f1f1f1;
+  margin: 0px;
+  padding: 0px;
+}
+.subtext{
+  letter-spacing: 0em;
+  font-size: 0.5em;
+  color: #b3b3b3;
+  line-height:0.2em;
+}
+</style><script type='text/javascript'>
+window.onload = function() {
+    var s = document.getElementsByTagName('div'), cur = 0, ti;
+    if (!s) return;
+    function go(n) {
+        cur = n;
+        var i = 1e3, e = s[n], t;
+        for (var k = 0; k < s.length; k++) s[k].style.display = 'none';
+        e.style.display = 'inline';
+        e.style.fontSize = i + 'px';
+        if (e.firstChild.nodeName === 'IMG') {
+            document.body.style.backgroundImage = 'url(' + e.firstChild.src + ')';
+            e.firstChild.style.display = 'none';
+            if ('classList' in e) e.classList.add('imageText');
+        } else {
+            document.body.style.backgroundImage = '';
+            document.body.style.backgroundColor = e.style.backgroundColor;
+        }
+        if (ti !== undefined) window.clearInterval(ti);
+        t = parseInt(e.getAttribute('time-to-next') || 0, 10);
+        if (t > 0) ti = window.setTimeout(fwd, (t * 1000));
+        while (
+            e.offsetWidth > window.innerWidth ||
+            e.offsetHeight > window.innerHeight) {
+            e.style.fontSize = (i -= 2) + 'px';
+            if (i < 0) break;
+        }
+        e.style.marginTop = ((window.innerHeight - e.offsetHeight) / 2) + 'px';
+        if (window.location.hash !== n) window.location.hash = n;
+        document.title = e.textContent || e.innerText;
+    }
+    //document.onclick = function() { go(++cur % (s.length)); };
+    function fwd() { go(Math.min(s.length - 1, ++cur)); }
+    function rev() { go(Math.max(0, --cur)); }
+    document.onkeydown = function(e) {
+        if (e.which === 39) fwd();
+        if (e.which === 37) rev();
+    };
+    document.ontouchstart = function(e) {
+        var x0 = e.changedTouches[0].pageX;
+        document.ontouchend = function(e) {
+            var x1 = e.changedTouches[0].pageX;
+            if (x1 - x0 < 0) fwd();
+            if (x1 - x0 > 0) rev();
+        };
+    };
+    function parse_hash() {
+        return Math.max(Math.min(
+            s.length - 1,
+            parseInt(window.location.hash.substring(1), 10)), 0);
+    }
+    if (window.location.hash) cur = parse_hash() || cur;
+    window.onhashchange = function() {
+        var c = parse_hash();
+        if (c !== cur) go(c);
+    };
+
+    go(cur);
+};
+</script></head><body>
+
+<div class="center"> So <em>WHAT</em> do you <em>DO</em> anyway?</div>
+<div><ul><li>What I <em>Did</em></li><li>What I <em>Do</em></li><li>What I Would <em class="dancing"> Like </em>To Do</li></ul></div>
+<div>Prologue:<em class="dancing"> Many Other Things</em><ul class=""><li>pizza pipeline manager</li><li>fish processor</li><li>social/behavioral researcher</li><li>space school teacher</li><li>organ donor</li><li>musician/piano/guitar/trombone</li><li>mountain climber</li></ul><em class="dancing">Ask me sometime ! I mean it . Just ask .</em></div>
+<div>So now I am a <em>geographer<br>and a cartographer <br>and a developer!<br></em></div>
+<div><img src="img/geography.png"></div>
+<div><img src="img/geographicperspective.jpg"></div>
+
+<div>Time at <a href="http://www.oslc.org/">OSLC</a> <em>+</em> Back To School For Geography
+</div>
+
+<div><em>=</em> <a href="http://blogs.uoregon.edu/s3clab/">Cognitive Cartography </a>
+</div>
+
+<div><em>Warning: Academic Content</em><br><a href="https://scholarsbank.uoregon.edu/xmlui/bitstream/handle/1794/7892/Martinelli_Earl_N_MS_spring2008.pdf?sequence=1">Do Not Open This PDF</a>
+</div>
+
+
+
+
+<div><img src="img/nightmap.png">Paper Maps!</div>
+<div><img src="img/campus.png">Online Maps!</div>
+
+<div>
+  <a href="http://map.uoregon.edu/" target="_blank">UO Campus Map</a><br>
+  <a href="http://www.oregon.gov/OWEB/MONITOR/fp_viewer/index.html" target="_blank">OWEB</a><br>
+  <a href="http://localhost/FrameworksVision/app/" target="_blank">MyCampus Survey</a><br>
+  <a href="https://hdsupply-beta.marketseer.com/" target="_blank">HDSupply</a><br>
+  <a href="http://localhost/marketseer_on_aws/shtml/mpa/" target="_blank">MPA</a><br>
+</div>
+
+<div class="center"><i class="fa fa-cog fa-spin"></i>What am I Working on Now/Next?<br><br>
+  <span class="dancing">  we</span><em>Map</em> </a>  <br><br>
+  <a href="http://wemap.io" target="_blank">Project Site <i class="fa fa-external-link-square"></i> </a> <br>
+  <a href="http://localhost/wemap-mockup/#/screens" target="_blank">inVision Wireframe <i class="fa fa-external-link-square"></i> </a><br>
+</div>
+<!--references-->
+<div>references
+<ul>
+<li>
+<a href="http://apcentral.collegeboard.com/apc/members/courses/teachers_corner/155012.html" target="_blank">Charles F. Gritzner South Dakota State University<br>
+<a href="http://education.nationalgeographic.com/education/media/geographic-perspective/?ar_a=1" target="_blank">Mary's Geographic Perspective Illustration<br>
+
+</ul>
+</div>
+</body></html>
